@@ -21,7 +21,8 @@ class Github extends Module{
 		require "HTTP/Request2.php";
 		$request = new HTTP_Request2(self::ACCESS_TOKEN_URL);
 		$request->setConfig(array(
-		    'proxy_host'        => 'http://10.42.0.2/',
+			'proxy'				=> 'http://10.42.0.2:8124/',
+		    'proxy_host'        => '10.42.0.2',
 		    'proxy_port'        => 8124
 		));
 		$request->setMethod(HTTP_Request2::METHOD_POST);
