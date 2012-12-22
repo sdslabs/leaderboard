@@ -20,11 +20,6 @@ class Github extends Module{
 		$code=$_GET['code'];
 		require "HTTP/Request2.php";
 		$request = new HTTP_Request2(self::ACCESS_TOKEN_URL);
-		$request->setConfig(array(
-			'proxy'				=> 'http://10.42.0.2:8124/',
-		    'proxy_host'        => '10.42.0.2',
-		    'proxy_port'        => 8124
-		));
 		$request->setMethod(HTTP_Request2::METHOD_POST);
 		$request->addPostParameter(array(
 			'client_id'=>GITHUB_APP_ID,
