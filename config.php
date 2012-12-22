@@ -1,0 +1,3 @@
+<?php
+define("GITHUB_APP_ID","b52094d38463b3377f8a");
+define("GITHUB_APP_SECRET","8c0adb6264fe8dd9441ee78cc7c2da7520f17054");
