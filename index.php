@@ -58,8 +58,17 @@ dispatch('/',function(){
 	return 'Hello';
 });
 
+dispatch('/debug',function(){
+    return json($_SESSION);
+});
+
+
 dispatch('/login',array('Github','login'));
 dispatch('/login/callback','Github::callback');
+dispatch('/logout',function(){
+    $_SESSION['userid']=false;
+    redirect_to('/debug');
+});
 //Start the app
 run();
 ?>
