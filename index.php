@@ -6,6 +6,7 @@
 require('lib/limonade.php');//Include the framework
 require('lib/module.php');
 require('config.php');//Configuration
+require "HTTP/Request2.php";
 
 ini_set('display_errors',1);
 error_reporting(-1);

@@ -21,8 +21,6 @@ class Github extends Module{
 	{
 		global $HTTP_CONFIG;
 		$token=Token::get(self::name,$userid);//we don't actually need this
-		//Make a request to github /users
-		require "HTTP/Request2.php";
 		$request=new HTTP_Request2("https://api.github.com/users/".$userid);
 		$request->setConfig($HTTP_CONFIG);
 		$response = $request->send()->getBody();
@@ -34,7 +32,6 @@ class Github extends Module{
 		global $HTTP_CONFIG;
 		//exchange the code you get for a access_token
 		$code=$_GET['code'];
-		require "HTTP/Request2.php";
 		$request = new HTTP_Request2(self::ACCESS_TOKEN_URL);
 		$request->setMethod(HTTP_Request2::METHOD_POST);
 		$request->setConfig($HTTP_CONFIG);
