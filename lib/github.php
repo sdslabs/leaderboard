@@ -6,16 +6,14 @@
  * @global $HTTP_CONFIG (http configuration to use)
  * @see http://pear.php.net/manual/en/package.http.http-request2.config.php
  */
-class Github extends Module{
+class Github{
 	const name='github';
-	function __construct()
-	{
-	}
 	const ACCESS_TOKEN_URL='https://github.com/login/oauth/access_token';
 	const USER_URL="https://api.github.com/user";
+	const OAUTH_URL="https://github.com/login/oauth/authorize?client_id=";
 	public static function login()
 	{
-		header("Location: https://github.com/login/oauth/authorize?client_id=".GITHUB_APP_ID);
+		header("Location: ".self::OAUTH_URL.GITHUB_APP_ID);
 	}
 	public static function update($userid)
 	{
