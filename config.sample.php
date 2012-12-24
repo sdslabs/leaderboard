@@ -2,8 +2,8 @@
 define("GITHUB_APP_ID","");
 define("GITHUB_APP_SECRET","");
 $HTTP_CONFIG=array(
-		'proxy_host'        => '10.42.0.2',
-		'proxy_port'        => 8124,
+		'proxy_host'        => '',
+		'proxy_port'        => '',
 		'ssl_capath'				=> '/etc/ssl/certs/',
 );
 //Point this to your own organization
