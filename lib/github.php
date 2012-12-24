@@ -17,7 +17,18 @@ class Github extends Module{
 	{
 		header("Location: https://github.com/login/oauth/authorize?client_id=".GITHUB_APP_ID);
 	}
-	function update(){}
+	public static function update($userid)
+	{
+		global $HTTP_CONFIG;
+		$token=Token::get(self::name,$userid);//we don't actually need this
+		//Make a request to github /users
+		require "HTTP/Request2.php";
+		$request=new HTTP_Request2("https://api.github.com/users/".$userid);
+		$request->setConfig($HTTP_CONFIG);
+		$response = $request->send()->getBody();
+		$score=json_decode($response)->followers;
+		Score::update(self::name,$userid,$score);
+	}
 	public static function callback()
 	{
 		global $HTTP_CONFIG;
@@ -58,9 +69,9 @@ class Github extends Module{
 		);
 		if(in_array(GITHUB_ORGANIZATION,$organizations_list))
 		{
-			Token::add('github',$userid,$access_token);
 			$_SESSION['userid']=$userid;
-			redirect_to('/');
+			return Token::add('github',$userid,$access_token);
+			//redirect_to('/');
 		}
 		else
 		{

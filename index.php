@@ -62,13 +62,19 @@ dispatch('/debug',function(){
     return json($_SESSION);
 });
 
-
+/** Authentication Related Stuff */
 dispatch('/login',array('Github','login'));
 dispatch('/login/callback','Github::callback');
 dispatch('/logout',function(){
     $_SESSION['userid']=false;
     redirect_to('/debug');
 });
+
+dispatch('/update/:service/:userid',function(){
+    $serviceClassName=ucfirst(params('service'));
+    $obj=$serviceClassName::update(params('userid'));
+});
+
 //Start the app
 run();
 ?>

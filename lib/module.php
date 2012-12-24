@@ -9,5 +9,4 @@ abstract class Module{
 	abstract static function login();
 	function setValue(){
 	}
-	abstract public function update();
 }
