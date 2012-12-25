@@ -55,9 +55,7 @@ function server_error($errno, $errstr, $errfile=null, $errline=null)
  * The various routes for the application
  * @see README file for more information
  */
-dispatch('/',function(){
-	return 'Hello';
-});
+dispatch('/','Score::view_all');
 
 dispatch('/debug',function(){
     return json($_SESSION);

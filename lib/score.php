@@ -13,4 +13,11 @@ class Score{
 		$query->bindParam(':score',$score);
 		$result=$query->execute();
 	}
+  	static function view_all()
+    {
+		global $db;
+		$query=$db->query("SELECT * FROM scores");
+		set('scores',$query->fetchAll(PDO::FETCH_OBJ));
+		return render('home.php');
+    }
 }
