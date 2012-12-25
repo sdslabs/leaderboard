@@ -52,8 +52,8 @@ function server_error($errno, $errstr, $errfile=null, $errline=null)
     return var_dump($args,true);
 }
 /**
- * The various routes for the application
- * @see README file for more information
+ * Home page shows all scores
+ * for all users
  */
 dispatch('/','Score::view_all');
 
@@ -62,13 +62,23 @@ dispatch('/debug',function(){
 });
 
 /** Authentication Related Stuff */
-dispatch('/login',array('Github','login'));
-dispatch('/login/callback','Github::callback');
+dispatch('/login/:service',function(){
+	$serviceClassName=ucfirst(params('service'));
+	return $obj=$serviceClassName::login();
+});
+dispatch_post('/login/:service/callback',function(){
+	$serviceClassName=ucfirst(params('service'));
+	return $serviceClassName::callback();
+});
 dispatch('/logout',function(){
     $_SESSION['userid']=false;
     redirect_to('/debug');
 });
 
+/**
+ * Update score for a particular
+ * user and service 
+ */
 dispatch('/update/:service/:userid',function(){
     $serviceClassName=ucfirst(params('service'));
     $obj=$serviceClassName::update(params('userid'));

@@ -16,7 +16,7 @@ class Score{
   	static function view_all()
     {
 		global $db;
-		$query=$db->query("SELECT * FROM scores");
+		$query=$db->query("SELECT * FROM scores ORDER BY userid,service");
 		set('scores',$query->fetchAll(PDO::FETCH_OBJ));
 		return render('home.php');
     }
