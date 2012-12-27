@@ -45,7 +45,10 @@ foreach($scores as $score)
 							UserId
 						</th>
 						<?foreach($services as $s):?>
-						<th><?=ucwords($s)?></th>		
+						<th>
+							<?=ucwords($s)?>
+							<img class="service-icon" src="public/img/<?=$s?>.png">
+						</th>		
 						<?endforeach;?>
 					</tr>
 				</thead>

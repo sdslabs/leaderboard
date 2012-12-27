@@ -9,6 +9,10 @@
   margin-top: 100px;
 }
 
+#scores table tr th{
+  vertical-align: middle;
+}
+
 #gh-icon {
   width: 30px;
   margin-right: 10px;
@@ -20,4 +24,8 @@
 
 #login-info a:hover {
   color: white;
+}
+
+.service-icon {
+  width: 30px;
 }
