@@ -1,6 +1,5 @@
 <?php
 class Twitter{
-
 	const name="twitter";
 	public static function login()
     {

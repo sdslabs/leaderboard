@@ -8,8 +8,9 @@ class Gitscore {
 		$request->setConfig($HTTP_CONFIG);
 		$response = $request->send()->getBody();
 		$score=json_decode($response)->scores->total;
+		if(!$score)
+			throw new Exception("User not in gitscore, try a little later");
 		Score::update(self::name,$userid,$score);//Update in database
 		redirect_to('/');
-		
     }
 }
