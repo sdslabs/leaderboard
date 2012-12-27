@@ -64,10 +64,16 @@ dispatch('/debug',function(){
 /** Authentication Related Stuff */
 dispatch('/login/:service',function(){
 	$serviceClassName=ucfirst(params('service'));
+	//since github is our main authentication method
+	//we allow that to run unauthenticated
+	if(!@$_SESSION['userid'] && $serviceClassName!='Github')
+		throw new Exception("You need to be logged in");
 	return $obj=$serviceClassName::login();
 });
 dispatch('/login/:service/callback',function(){
 	$serviceClassName=ucfirst(params('service'));
+	if(!@$_SESSION['userid'] && $serviceClassName!='Github')
+		throw new Exception("You need to be logged in");
 	return $serviceClassName::callback();
 });
 dispatch('/logout',function(){

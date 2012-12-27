@@ -18,11 +18,11 @@ class Lastfm{
 		redirect_to('/');
     }
 	public static function callback()
-	{
-      //Get the username
-      $username=$_POST['username'];
-      //Save it inside as an access_token
-      Token::add(self::name,$_SESSION['userid'],$username);
-      return "saved";
+	{		
+		//Get the username
+		$username=$_GET['username'];
+		//Save it inside as an access_token
+		Token::add(self::name,$_SESSION['userid'],$username);
+		redirect_to('/');
 	}
 }
