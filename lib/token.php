@@ -20,6 +20,6 @@ class Token{
 		$query->bindParam(':userid',$userid);
 		$query->bindParam(':service',$service);
 		$query->execute();
-		return $query->fetch(PDO::FETCH_ASSOC);
+		return $query->fetch(PDO::FETCH_ASSOC)['access_token'];
 	}
 }

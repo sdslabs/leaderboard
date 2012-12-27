@@ -81,7 +81,7 @@ dispatch('/logout',function(){
  */
 dispatch('/update/:service/:userid',function(){
     $serviceClassName=ucfirst(params('service'));
-    $obj=$serviceClassName::update(params('userid'));
+    return json($serviceClassName::update(params('userid')));
 });
 
 //Start the app
