@@ -18,7 +18,17 @@ foreach($scores as $score)
 			<a class="brand" href="/">Leaderboard</a>
 			<div class="nav-collapse" id="main-menu">
 				<ul class="nav pull-right" id="main-menu-left">
-					<li><a href="/login/github">Login using Github</a></li>
+					<?php
+						if ($_SESSION['userid']):
+					?>
+					<li id="login-info"><a>Logged in as <?=$_SESSION['userid'];?></a></li>
+					<?php
+						else:
+					?>
+					<li id="login-button"><a href="/login/github"><img id="gh-icon" src="/public/img/gh.png">Login</a></li>
+					<?php
+						endif;
+					?>
 				</ul>
 			</div>
 		</div>
@@ -35,7 +45,7 @@ foreach($scores as $score)
 							UserId
 						</th>
 						<?foreach($services as $s):?>
-						<th><?=$s?></th>		
+						<th><?=ucwords($s)?></th>		
 						<?endforeach;?>
 					</tr>
 				</thead>

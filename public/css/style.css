@@ -1,5 +1,23 @@
 /*Custom CSS*/
 
+.navbar-inner {
+  height: 60px;
+  vertical-align: middle;
+}
+
 #scores {
   margin-top: 100px;
+}
+
+#gh-icon {
+  width: 30px;
+  margin-right: 10px;
+}
+
+#login-button:hover #gh-icon {
+  opacity: 0.5;
+}
+
+#login-info a:hover {
+  color: white;
 }
