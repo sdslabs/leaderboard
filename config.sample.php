@@ -1,6 +1,8 @@
 <?php
 define("GITHUB_APP_ID","");
 define("GITHUB_APP_SECRET","");
+define("STACKEXCHANGE_KEY","");
+define("LASTFM_APP_ID", "");
 $HTTP_CONFIG=array(
 		'proxy_host'        => '',
 		'proxy_port'        => '',
