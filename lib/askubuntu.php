@@ -1,4 +1,8 @@
 <?php
+/**
+ * Required Configuration
+ * STACKEXCHANGE_KEY : Key of your SE App
+ */
 class Askubuntu{
 	const name="askubuntu";
 	public static function login()
@@ -11,7 +15,7 @@ class Askubuntu{
     {
     	global $HTTP_CONFIG;
     	$id=Token::get(self::name,$userid);
-		$request=new HTTP_Request2("https://api.stackexchange.com/2.1/users/".$id."?site=askubuntu");
+		$request=new HTTP_Request2("https://api.stackexchange.com/2.1/users/".$id."?site=askubuntu&key=".STACKEXCHANGE_KEY);
 		$request->setConfig($HTTP_CONFIG);
 		$response = $request->send()->getBody();
 		$reputation=json_decode($response)->items[0]->reputation;
