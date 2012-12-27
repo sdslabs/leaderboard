@@ -3,4 +3,6 @@
 		<input type="text" name="username">
 	</label>
 	<input type="submit" value="Save">
+	<br>
+	<p><?=@$hint;?></p>
 </form>
