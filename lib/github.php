@@ -65,8 +65,8 @@ class Github{
 		if(in_array(GITHUB_ORGANIZATION,$organizations_list))
 		{
 			$_SESSION['userid']=$userid;
-			return Token::add('github',$userid,$access_token);
-			//redirect_to('/');
+			Token::add('github',$userid,$access_token);
+			redirect_to('/');
 		}
 		else
 		{

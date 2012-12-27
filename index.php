@@ -66,7 +66,7 @@ dispatch('/login/:service',function(){
 	$serviceClassName=ucfirst(params('service'));
 	return $obj=$serviceClassName::login();
 });
-dispatch_post('/login/:service/callback',function(){
+dispatch('/login/:service/callback',function(){
 	$serviceClassName=ucfirst(params('service'));
 	return $serviceClassName::callback();
 });
