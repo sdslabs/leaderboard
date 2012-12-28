@@ -22,8 +22,7 @@ foreach($scores as $score)
 						</th>
 						<?foreach($services as $s):?>
 						<th>
-							<?=ucwords($s)?>
-							<img class="service-icon" src="public/img/<?=$s?>.png">
+							<img class="service-icon" src="public/img/<?=$s?>.png" title="<?=$s?>">
 						</th>		
 						<?endforeach;?>
 					</tr>
