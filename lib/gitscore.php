@@ -13,4 +13,9 @@ class Gitscore {
 		Score::update(self::name,$userid,$score);//Update in database
 		redirect_to('/');
     }
+    //Just a dummy function, so as to avoid some errors
+    public static function login()
+    {
+    	redirect_to('/');
+    }
 }
