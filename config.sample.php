@@ -3,6 +3,8 @@ define("GITHUB_APP_ID","");
 define("GITHUB_APP_SECRET","");
 define("STACKEXCHANGE_KEY","");
 define("LASTFM_APP_ID", "");
+define("FACEBOOK_APP_ID", "");
+define("FACEBOOK_APP_SECRET", "");
 $HTTP_CONFIG=array(
 		'proxy_host'        => '',
 		'proxy_port'        => '',
