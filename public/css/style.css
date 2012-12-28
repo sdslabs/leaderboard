@@ -12,7 +12,9 @@
 #scores table tr th{
   vertical-align: middle;
 }
-
+#scores th,#scores td{
+  text-align: center;
+}
 #gh-icon {
   width: 30px;
   margin-right: 10px;

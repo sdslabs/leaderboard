@@ -57,7 +57,7 @@ foreach($scores as $score)
 					<tr>
 						<th><?=$person?></th>
 						<?foreach($services as $s):?>
-						<td><?=isset($score[$s])?$score[$s]:"N/A"?></td>
+						<td><?=isset($score[$s])?$score[$s]:" - "?></td>
 						<?endforeach;?>
 					</tr>
 					<?endforeach;?>
