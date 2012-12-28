@@ -19,7 +19,7 @@ foreach($scores as $score)
 			<div class="nav-collapse" id="main-menu">
 				<ul class="nav pull-right" id="main-menu-left">
 					<?php
-						if ($_SESSION['userid']):
+						if (isset($_SESSION['userid']) && $_SESSION['userid']==true):
 					?>
 					<li id="login-info"><a>Logged in as <?=$_SESSION['userid'];?></a></li>
 					<?php
