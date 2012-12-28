@@ -1,6 +1,6 @@
 <?php
-class Twitter{
-	const name="twitter";
+class Codechef{
+	const name="codechef";
 	public static function login()
     {
 		set('service',self::name);
@@ -9,16 +9,16 @@ class Twitter{
     public static function update($userid)
     {
     	global $HTTP_CONFIG;
-    	$twitterScreenName=Token::get(self::name,$userid);
-		$request=new HTTP_Request2("https://api.twitter.com/1/users/show.json?screen_name=".$twitterScreenName);
+    	$username=Token::get(self::name,$userid);
+		$request=new HTTP_Request2("http://open.dapper.net/transform.php?dappName=CodeChefProblemsSolved&transformer=JSON&v_username=".$username);
 		$request->setConfig($HTTP_CONFIG);
 		$response = $request->send()->getBody();
-		$followers_count=json_decode($response)->followers_count;
-		Score::update(self::name,$userid,$followers_count);//Update in database
+		$score=json_decode($response)->fields->solved[0]->value;
+		Score::update(self::name,$userid,$score);
 		redirect_to('/');
     }
 	public static function callback()
-	{
+	{		
 		//Get the username
 		$username=$_GET['username'];
 		//Save it inside as an access_token
