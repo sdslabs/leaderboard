@@ -19,6 +19,7 @@ Leaderboard tracks a user's score across various services:
 - ✓ Spoj (current score)
 - ✓ Gitscore (user's score)
 - ✓ Hacker News (user's karma)
+- ✓ Klout score
 
 More services are planned. Services that require authentication ask for a minimal
 authentication via oauth.
@@ -28,6 +29,8 @@ The authentication mechanism for a user is based on Github's organization
 
 #Screenshots
 ![Home Page](https://dl.dropbox.com/u/19398876/screenshots/014.png "Home Page")
+
+![Home Page](https://dl.dropbox.com/u/19398876/screenshots/015.png "Home Page")
 
 ##Credits
 - thenounproject.com for the favicon
