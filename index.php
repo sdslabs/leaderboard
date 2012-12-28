@@ -77,8 +77,8 @@ dispatch('/login/:service/callback',function(){
 	return $serviceClassName::callback();
 });
 dispatch('/logout',function(){
-    $_SESSION['userid']=false;
-    redirect_to('/debug');
+    unset($_SESSION['userid']);
+    redirect_to('/');
 });
 
 /**
@@ -88,6 +88,15 @@ dispatch('/logout',function(){
 dispatch('/update/:service/:userid',function(){
     $serviceClassName=ucfirst(params('service'));
     return json($serviceClassName::update(params('userid')));
+});
+
+//Management of linked accounts
+dispatch('/accounts',function(){
+	if(!@$_SESSION['userid'])
+		throw new Exception("You need to be logged in");
+	global $db;
+	$userid=$_SESSION['userid'];
+	return html('accounts.php');
 });
 
 //Start the app

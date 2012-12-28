@@ -11,30 +11,6 @@ $services=array_unique($services);
 foreach($scores as $score)
 	$scores_formatted[$score->userid][$score->service]=$score->score;
 ?>
-
-<div class="navbar navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container">
-			<a class="brand" href="/">Leaderboard</a>
-			<div class="nav-collapse" id="main-menu">
-				<ul class="nav pull-right" id="main-menu-left">
-					<?php
-						if (isset($_SESSION['userid']) && $_SESSION['userid']==true):
-					?>
-					<li id="login-info"><a>Logged in as <?=$_SESSION['userid'];?></a></li>
-					<?php
-						else:
-					?>
-					<li id="login-button"><a href="/login/github"><img id="gh-icon" src="/public/img/gh.png">Login</a></li>
-					<?php
-						endif;
-					?>
-				</ul>
-			</div>
-		</div>
-	</div>
-</div>
-
 <section id="scores">
 	<div class="container">
 		<div class="row">
