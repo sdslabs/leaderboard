@@ -5,6 +5,7 @@ define("STACKEXCHANGE_KEY","");
 define("LASTFM_APP_ID", "");
 define('FACEBOOK_APP_ID',"");
 define("FACEBOOK_APP_SECRET","");
+define("KLOUT_APP_KEY", "");
 $HTTP_CONFIG=array(
 		'proxy_host'        => '',
 		'proxy_port'        => '',
