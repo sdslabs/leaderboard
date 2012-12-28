@@ -16,7 +16,6 @@ class Facebook{
 		$response = $request->send()->getBody();
 		$subscribersCount=json_decode($response)->summary->total_count;
 		Score::update(self::name,$userid,$subscribersCount);//Update in database
-		redirect_to('/');
     }
 	public static function callback()
 	{

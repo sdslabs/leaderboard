@@ -22,4 +22,10 @@ class Token{
 		$query->execute();
 		return $query->fetch(PDO::FETCH_ASSOC)['access_token'];
 	}
+	static function getAll()
+	{
+		global $db;
+		$query=$db->query("SELECT * FROM access_tokens");
+		return $query->fetchAll(PDO::FETCH_ASSOC);
+	}
 }

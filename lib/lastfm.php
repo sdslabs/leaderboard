@@ -15,7 +15,6 @@ class Lastfm{
 		$response = $request->send()->getBody();
 		$playcount=trim(json_decode($response)->user->playcount);
 		Score::update(self::name,$userid,$playcount);//Update in database
-		redirect_to('/');
     }
 	public static function callback()
 	{		

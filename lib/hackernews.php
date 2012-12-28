@@ -15,7 +15,6 @@ class Hackernews{
 		$response = $request->send()->getBody();
 		$karma=json_decode($response)->fields->karma[0]->value;
 		Score::update(self::name,$userid,$karma);
-		redirect_to('/');
     }
 	public static function callback()
 	{		

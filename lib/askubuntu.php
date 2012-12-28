@@ -20,8 +20,6 @@ class Askubuntu{
 		$response = $request->send()->getBody();
 		$reputation=json_decode($response)->items[0]->reputation;
 		Score::update(self::name,$userid,$reputation);//Update in database
-		redirect_to('/');
-		
     }
 	public static function callback()
 	{

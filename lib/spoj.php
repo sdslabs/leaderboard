@@ -21,7 +21,6 @@ class Spoj{
 		$spacePosition=strpos($score,' ');
 		$score=(int)substr($score,1,$spacePosition-1);
 		Score::update(self::name,$userid,$score);
-		redirect_to('/');
     }
 	public static function callback()
 	{		

@@ -4,7 +4,6 @@
  * This is the main router file
  */
 require('lib/limonade.php');//Include the framework
-require('lib/module.php');
 require('config.php');//Configuration
 require "HTTP/Request2.php";
 

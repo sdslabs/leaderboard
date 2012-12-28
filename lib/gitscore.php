@@ -11,7 +11,6 @@ class Gitscore {
 		if(!$score)
 			throw new Exception("User not in gitscore, try a little later");
 		Score::update(self::name,$userid,$score);//Update in database
-		redirect_to('/');
     }
     //Just a dummy function, so as to avoid some errors
     public static function login()

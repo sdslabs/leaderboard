@@ -15,7 +15,6 @@ class Twitter{
 		$response = $request->send()->getBody();
 		$followers_count=json_decode($response)->followers_count;
 		Score::update(self::name,$userid,$followers_count);//Update in database
-		redirect_to('/');
     }
 	public static function callback()
 	{

@@ -15,7 +15,6 @@ class Codechef{
 		$response = $request->send()->getBody();
 		$score=json_decode($response)->fields->solved[0]->value;
 		Score::update(self::name,$userid,$score);
-		redirect_to('/');
     }
 	public static function callback()
 	{		
