@@ -13,11 +13,12 @@ Leaderboard tracks a user's score across various services:
 - ✓ Last.FM (listen count)
 - ✓ Stackoverflow (reputation)
 - ✓ AskUbuntu (reputation)
-- Facebook (subscribers)
+- ✓ Facebook (subscribers)
 - Dropbox (total space)
 - ✓ Twitter (follower count)
 - ✓ Spoj (current score)
 - ✓ Gitscore (user's score)
+- ✓ Hacker News (user's karma)
 
 More services are planned. Services that require authentication ask for a minimal
 authentication via oauth.
