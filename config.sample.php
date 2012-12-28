@@ -3,8 +3,8 @@ define("GITHUB_APP_ID","");
 define("GITHUB_APP_SECRET","");
 define("STACKEXCHANGE_KEY","");
 define("LASTFM_APP_ID", "");
-define("FACEBOOK_APP_ID", "");
-define("FACEBOOK_APP_SECRET", "");
+define('FACEBOOK_APP_ID',"");
+define("FACEBOOK_APP_SECRET","");
 $HTTP_CONFIG=array(
 		'proxy_host'        => '',
 		'proxy_port'        => '',
@@ -13,4 +13,6 @@ $HTTP_CONFIG=array(
 //Point this to your own organization
 //Where you want to limit the login
 define("GITHUB_ORGANIZATION",'sdslabs');
-$db=new PDO("mysql:dbname=leaderboard;host=127.0.0.1",'root','');
+$db=new PDO("mysql:dbname=leaderboard;host=127.0.0.1",'root','password');
+//These services are shown on the accounts mgt page
+$SERVICES=array('askubuntu','codechef','facebook','github','hackernews','lastfm','spoj','stackoverflow','twitter');
