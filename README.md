@@ -35,3 +35,5 @@ The authentication mechanism for a user is based on Github's organization
 
 ##Credits
 - thenounproject.com for the favicon
+- We use [dapper](http://open.dapper.net) for scraping some data
+- [Limonade](https://github.com/sofadesign/limonade) as the framework
