@@ -98,6 +98,11 @@ dispatch('/accounts',function(){
 	return html('accounts.php');
 });
 
+//Static pages
+dispatch('/page/:page',function(){
+    return html('pages/'.params('page').'.html');
+});
+
 //Start the app
 run();
 ?>

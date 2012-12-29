@@ -38,6 +38,9 @@ foreach($scores as $score)
 					<?endforeach;?>
 				</tbody>
 			</table>
+			<p>
+				To know which service tracks what, go to our <a href="/page/about">about</a> page.
+			</p>
 		</div>
 	</div>
 </section>
