@@ -10,6 +10,7 @@ global $SERVICES;
 				<li><a href="/login/<?=$s?>"><?=ucwords($s);?></a></li>
 			<?endforeach;?>
 			</ul>
+			<p>Any new login will delete your previous authentication with that service.</p>
 		</div>
 	</div>
 </section>
