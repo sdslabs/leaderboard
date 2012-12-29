@@ -20,6 +20,7 @@ Leaderboard tracks a user's score across various services:
 - ✓ Gitscore (user's score)
 - ✓ Hacker News (user's karma)
 - ✓ Klout score
+- ✓ Project Euler (problems solved)
 
 More services are planned. Services that require authentication ask for a minimal
 authentication via oauth.
