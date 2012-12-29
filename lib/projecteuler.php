@@ -1,6 +1,6 @@
 <?php
-class Euler{
-	const name="euler";
+class Projecteuler{
+	const name="projecteuler";
 	public static function login()
     {
 		set('service',self::name);
