@@ -4,6 +4,7 @@ class Lastfm{
 	public static function login()
     {
 		set('service',self::name);
+		set('prepend','last.fm/user/');
 		return render('ask_username.php');
     }
     public static function update($userid)

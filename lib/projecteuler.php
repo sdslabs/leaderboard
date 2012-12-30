@@ -4,6 +4,7 @@ class Projecteuler{
 	public static function login()
     {
 		set('service',self::name);
+		set('prepend','projecteuler.net/account=');
 		return render('ask_username.php');
     }
     public static function update($userid)

@@ -8,7 +8,9 @@ class Askubuntu{
 	public static function login()
     {
 		set('service',self::name);
-		set('hint',"Enter your numeric userid (http://askubuntu.com/users/<strong>11736</strong>/capt-nemo). <br>Just the number is needed");
+		//set('hint',"Enter your numeric userid (http://askubuntu.com/users/<strong>11736</strong>/capt-nemo).");
+		set('prepend','askubuntu.com/users/');
+		set('append','/user-name');
 		return render('ask_username.php');
     }
     public static function update($userid)

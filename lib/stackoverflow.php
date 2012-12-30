@@ -8,7 +8,8 @@ class Stackoverflow{
 	public static function login()
     {
 		set('service',self::name);
-		set('hint',"Enter your numeric userid (http://stackoverflow.com/users/<strong>368328</strong>/capt-nemo). <br>Just the number is needed");
+		set('prepend','stackoverflow.com/users/');
+		set('append','/user-name');
 		return render('ask_username.php');
     }
     public static function update($userid)

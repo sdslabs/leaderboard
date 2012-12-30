@@ -4,6 +4,7 @@ class Twitter{
 	public static function login()
     {
 		set('service',self::name);
+		set('prepend','@');
 		return render('ask_username.php');
     }
     public static function update($userid)

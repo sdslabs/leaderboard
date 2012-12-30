@@ -4,6 +4,7 @@ class Codechef{
 	public static function login()
     {
 		set('service',self::name);
+		set('prepend','codechef.com/users/');
 		return render('ask_username.php');
     }
     public static function update($userid)

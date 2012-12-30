@@ -4,6 +4,7 @@ class Hackernews{
 	public static function login()
     {
 		set('service',self::name);
+		set('prepend','news.ycombinator.com/user?id=');
 		return render('ask_username.php');
     }
     public static function update($userid)

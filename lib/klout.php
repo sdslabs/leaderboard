@@ -9,6 +9,7 @@ class Klout{
     {
     set('service',self::name);
     set('hint','Please enter your twitter handle');
+    set('prepend','@');
     return render('ask_username.php');
     }
     public static function update($userid)
