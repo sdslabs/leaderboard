@@ -6,7 +6,7 @@
 				<?if(isset($prepend)):?>
 				<span class="add-on"><?=$prepend?></span>
 				<?endif;?>
-				<input class="span2" type="text" name="username">
+				<input class="span2" type="text" name="username" value="<?=@$username?>">
 				<?if(isset($append)):?>
 				<span class="add-on"><?=$append?></span>
 				<?endif;?>

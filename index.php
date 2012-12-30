@@ -67,6 +67,7 @@ dispatch('/login/:service',function(){
 	//we allow that to run unauthenticated
 	if(!@$_SESSION['userid'] && $serviceClassName!='Github')
 		throw new Exception("You need to be logged in");
+	set('username',Token::get(params('service'),$_SESSION['userid']));
 	return $obj=$serviceClassName::login();
 });
 dispatch('/login/:service/callback',function(){
