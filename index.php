@@ -16,7 +16,6 @@ error_reporting(-1);
 function before($route)
 {
 	layout('layout.php');//default layout
-	set('title','Leaderboard - SDSLabs');
 	set('userid',@$_SESSION['userid']);
 }
 

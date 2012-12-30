@@ -40,6 +40,7 @@ foreach($scores as $score)
 			</table>
 			<p>
 				To know which service tracks what, go to our <a href="/page/about">about</a> page.
+				Click on a logo to sort.
 			</p>
 		</div>
 	</div>
