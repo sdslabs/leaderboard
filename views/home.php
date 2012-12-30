@@ -14,7 +14,7 @@ foreach($scores as $score)
 <section id="scores">
 	<div class="container">
 		<div class="row">
-			<table class="table table-bordered table-striped">
+			<table id="hometable" class="table table-bordered table-striped tablesorter">
 				<thead>
 					<tr>
 						<th>
@@ -44,3 +44,10 @@ foreach($scores as $score)
 		</div>
 	</div>
 </section>
+<script src="/public/js/jquery.min.js"></script>
+<script src="/public/js/jquery.tablesorter.min.js"></script>
+<script>
+	$(function(){ 
+	  $("#hometable").tablesorter(); 
+	});
+</script>
