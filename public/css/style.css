@@ -16,6 +16,9 @@ section {
 #scores th,#scores td{
   text-align: center;
 }
+th{
+  cursor: pointer;
+}
 #gh-icon {
   width: 30px;
   margin-right: 10px;
