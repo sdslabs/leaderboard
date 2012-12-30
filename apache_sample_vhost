@@ -1,0 +1,31 @@
+<VirtualHost *:80>
+	ServerAdmin contact@sdslabs.co.in
+    ServerName leaderboard.dev
+    #Change the below two lines
+    #with the absolute path 
+	DocumentRoot /home/nemo/projects/sdslabs/leaderboard/
+	<Directory /home/nemo/projects/sdslabs/leaderboard/>
+		# Some hosts may require you to use the `RewriteBase` directive.
+		# # If you need to use the `RewriteBase` directive, it should be the
+		# # absolute physical path to the directory that contains this htaccess file.
+		# #
+		# # RewriteBase /
+		#
+		Order allow,deny
+		allow from all
+		Options -Indexes
+        <IfModule mod_rewrite.c>                        
+                RewriteEngine on
+                RewriteCond %{SCRIPT_FILENAME} !-f
+                RewriteCond %{SCRIPT_FILENAME} !-d
+                RewriteRule ^(.*)$   index.php?uri=/$1    [NC,L,QSA]
+        </IfModule>
+	</Directory>
+
+	ErrorLog /var/log/apache2/leaderboard.error.log
+
+	# Possible values include: debug, info, notice, warn, error, crit,
+	# alert, emerg.
+	LogLevel debug
+	CustomLog /var/log/apache2/leaderboard.access.log combined
+</VirtualHost>
