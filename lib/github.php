@@ -49,28 +49,49 @@ class Github{
 			$HTTP_CONFIG
 		);
 		$response = $request->send()->getBody();
-		//Get the userid, and perform the organization check
-		$userid=json_decode($response)->login;
-		$request = new HTTP_Request2(json_decode($response)->organizations_url.'?access_token='.$access_token,
-			HTTP_Request2::METHOD_GET,
-			$HTTP_CONFIG
-		);
-		$response = $request->send()->getBody();
-		$organizations_list=array_map(
-			function($repo){
-				return $repo->login;
-			},
-			json_decode($response)
-		);
-		if(defined('GITHUB_ORGANIZATION') && in_array(GITHUB_ORGANIZATION,$organizations_list))
+		$userid=json_decode($response)->login; //get the userid
+
+		//If such a user already exists in the database
+		//Just log him in and don't touch the access_token
+		$already_present_token=Token::get('github',$userid);
+		if($already_present_token)
+		{
+			$_SESSION['userid']=$userid;
+			redirect_to('/');
+		}
+		if(defined("GITHUB_ORGANIZATION"))
+		{
+			// perform the organization check
+			
+			$request = new HTTP_Request2(json_decode($response)->organizations_url.'?access_token='.$access_token,
+				HTTP_Request2::METHOD_GET,
+				$HTTP_CONFIG
+			);
+			$response = $request->send()->getBody();
+
+			//List of organizations
+			$organizations_list=array_map(
+				function($repo){
+					return $repo->login;
+				},
+				json_decode($response)
+			);
+			if(in_array(GITHUB_ORGANIZATION,$organizations_list))
+			{
+				$_SESSION['userid']=$userid;
+				Token::add('github',$userid,$access_token);
+			}
+			else
+			{
+				throw new Exception("You are not in the listed members.");
+			}
+		}
+		//Application is open to login for all
+		else
 		{
 			$_SESSION['userid']=$userid;
 			Token::add('github',$userid,$access_token);
-			redirect_to('/');
 		}
-		else
-		{
-			throw new Exception("You are not in the listed members.");
-		}
+		redirect_to('/');
 	}
 }

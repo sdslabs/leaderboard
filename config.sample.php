@@ -14,7 +14,7 @@ $HTTP_CONFIG=array(
 //Point this to your own organization
 //Where you want to limit the login
 //You can remove this line to make the app open to all (anyone with a github a/c can login)
-define("GITHUB_ORGANIZATION",'sdslabs');
+define("GITHUB_ORGANIZATION",'sdslabs');//case sensitive
 $db=new PDO("mysql:dbname=leaderboard;host=127.0.0.1",'root','password');
 //These services are shown on the accounts mgt page
 $SERVICES=array('askubuntu','codechef','facebook','hackernews','klout','lastfm','projecteuler','spoj','stackoverflow','twitter');
