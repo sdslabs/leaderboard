@@ -62,7 +62,7 @@ class Github{
 			},
 			json_decode($response)
 		);
-		if(in_array(GITHUB_ORGANIZATION,$organizations_list))
+		if(defined('GITHUB_ORGANIZATION') && in_array(GITHUB_ORGANIZATION,$organizations_list))
 		{
 			$_SESSION['userid']=$userid;
 			Token::add('github',$userid,$access_token);
