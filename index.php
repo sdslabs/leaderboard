@@ -7,8 +7,6 @@ require('lib/limonade.php');//Include the framework
 require('config.php');//Configuration
 require "HTTP/Request2.php";
 
-ini_set('display_errors',1);
-error_reporting(-1);
 /**
  * This function is called before each 
  * route initialization
@@ -86,7 +84,9 @@ dispatch('/logout',function(){
  */
 dispatch('/update/:service/:userid',function(){
     $serviceClassName=ucfirst(params('service'));
-    return json($serviceClassName::update(params('userid')));
+    $serviceClassName::update(params('userid'));
+    flash('message',"Your score for ".params('service')." has been updated");
+    redirect_to('/accounts');
 });
 
 //Management of linked accounts

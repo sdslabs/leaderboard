@@ -67,3 +67,22 @@ body {
     padding-right: 20px;
   }
 }
+
+.box{
+  float: left;
+  margin-left: 10px;
+  width: 100px;
+  min-height:10px;
+  padding:10px;
+  margin-bottom:10px;
+  background-color:#eeeeee;
+}
+.box .form-inline{
+  margin: 0px !important;
+}
+.box .service-icon{
+  margin: 5px 1px 0px 0px;
+}
+.box .refresh-btn{
+  float:right;
+}
