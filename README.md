@@ -33,6 +33,8 @@ The authentication mechanism for a user is based on Github's organization
 
 ![Home Page](https://dl.dropbox.com/u/19398876/screenshots/015.png "Home Page")
 
+![Accounts Page](http://i.minus.com/iH2n8lKvVGiVa.jpg "accounts page")
+
 ##Credits
 - thenounproject.com for the favicon
 - We use [dapper](http://open.dapper.net) for scraping some data
