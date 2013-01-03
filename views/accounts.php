@@ -14,11 +14,11 @@ global $SERVICES;
 		<?endif;?>
 		<div class="row">
 			<?foreach($SERVICES as $s):?>
-				<div class="box">
+				<div class="well account-box">
 					<form class="form-inline">
 						<img class="service-icon" src="/public/img/<?=$s?>.png">
-						<a href="/login/<?=$s?>" class="btn">Login</a>
-						<a class="refresh-btn btn btn-default" href="/update/<?=$s."/".$_SESSION['userid']?>">Refresh</a>
+						<a href="/login/<?=$s?>" class="btn btn-primary pull-right">Login</a><br>
+						<a class="refresh-btn btn btn-primary pull-right" href="/update/<?=$s."/".$_SESSION['userid']?>">Refresh</a>
 					</form>
 				</div>
 			<?endforeach;?>

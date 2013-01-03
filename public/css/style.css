@@ -68,21 +68,15 @@ body {
   }
 }
 
-.box{
-  float: left;
-  margin-left: 10px;
-  width: 100px;
-  min-height:10px;
-  padding:10px;
-  margin-bottom:10px;
-  background-color:#eeeeee;
+.account-box {
+  padding-right: 20px;
+  margin-right: 0;
+  display: inline-block;
+  background-color: #efefef;
 }
-.box .form-inline{
-  margin: 0px !important;
-}
-.box .service-icon{
-  margin: 5px 1px 0px 0px;
-}
-.box .refresh-btn{
-  float:right;
+
+.btn {
+  margin-left: 30px;
+  width: 50px;
+  background-color: black;
 }
