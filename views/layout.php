@@ -11,7 +11,7 @@
 			<div class="navbar navbar-fixed-top">
 				<div class="navbar-inner">
 					<div class="container">
-						<a class="brand" href="/">Leaderboard</a>
+						<a class="brand" href="/"><img class="service-icon" src="/public/img/favicon.png"> | Leaderboard</a>
 						<div class="nav-collapse" id="main-menu">
 							<ul class="nav pull-right" id="main-menu-left">
 								<?if (isset($_SESSION['userid']) && $_SESSION['userid']!==false):?>
