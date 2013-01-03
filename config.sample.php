@@ -17,4 +17,4 @@ $HTTP_CONFIG=array(
 define("GITHUB_ORGANIZATION",'sdslabs');//case sensitive
 $db=new PDO("mysql:dbname=leaderboard;host=127.0.0.1",'root','password');
 //These services are shown on the accounts mgt page
-$SERVICES=array('askubuntu','codechef','facebook','hackernews','klout','lastfm','projecteuler','spoj','stackoverflow','twitter');
+$SERVICES=array('askubuntu','codechef','facebook','github','hackernews','klout','lastfm','projecteuler','spoj','stackoverflow','twitter');
