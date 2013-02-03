@@ -24,7 +24,7 @@ class Klout{
 		$request=new HTTP_Request2("http://api.klout.com/v2/user.json/".$id."/score?key=".KLOUT_APP_KEY);
 		$request->setConfig($HTTP_CONFIG);
 		$response = $request->send()->getBody();
-		$score=json_decode($response)->score;
+		$score=(int)json_decode($response)->score;
 		Score::update(self::name,$userid,$score);//Update in database
     }
   public static function callback()

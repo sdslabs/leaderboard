@@ -20,7 +20,7 @@ class Spoj{
 		 * (n points)
 		 */
 		$spacePosition=strpos($score,' ');
-		$score=(int)substr($score,1,$spacePosition-1);
+		$score=substr($score,1,$spacePosition-1);
 		Score::update(self::name,$userid,$score);
     }
 	public static function callback()
