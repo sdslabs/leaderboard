@@ -14,7 +14,7 @@ class Codechef{
 		$request=new HTTP_Request2("http://open.dapper.net/transform.php?dappName=CodeChefProblemsSolved&transformer=JSON&v_username=".$username);
 		$request->setConfig($HTTP_CONFIG);
 		$response = $request->send()->getBody();
-		$score=json_decode($response)->fields->solved[0]->value;
+		$score=json_decode($response)->fields->solved[32]->value;
 		Score::update(self::name,$userid,$score);
     }
 	public static function callback()
