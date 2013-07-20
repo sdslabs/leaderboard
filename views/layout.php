@@ -30,7 +30,7 @@
 		</div>
 		<div id="footer">
 	      <div class="container">
-	        <p>Designed and build by <a href="http://team.sdslabs.co">Team SDSLabs</a>.</p>
+	        <p>Designed and built by <a href="http://team.sdslabs.co">Team SDSLabs</a>.</p>
 	        <p>Code licenced under the MIT Licence and available on <a href="https://github.com/sdslabs/leaderboard/">GitHub</a>.
 	      </div>
 	    </div>
