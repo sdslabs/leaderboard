@@ -22,11 +22,7 @@ foreach($scores as $score)
 						</th>
 						<?foreach($services as $s):?>
 						<th>
-							<?= if( $s != 'hackernews' ) { ?>
-							<a href="<?=$s?>.com"><img class="service-icon" src="public/img/<?=$s?>.png" title="<?=$s?>"></a>
-							<?= } else { ?>
-							<a href="news.ycombinator.com"><img class="service-icon" src="public/img/<?=$s?>.png" title="<?=$s?>"></a>
-							<?= } ?>
+							<img class="service-icon" src="public/img/<?=$s?>.png" title="<?=$s?>">
 						</th>		
 						<?endforeach;?>
 					</tr>
