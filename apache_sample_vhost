@@ -11,8 +11,7 @@
 		# #
 		# # RewriteBase /
 		#
-		Order allow,deny
-		allow from all
+		Require all granted
 		Options -Indexes
         <IfModule mod_rewrite.c>                        
                 RewriteEngine on
