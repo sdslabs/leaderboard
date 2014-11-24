@@ -11,11 +11,11 @@ class Hackernews{
     {
     	global $HTTP_CONFIG;
     	$username=Token::get(self::name,$userid);
-    $request=new HTTP_Request2("http://hn-karma-tracker.herokuapp.com/user/".$username.".json");
-    $request->setConfig($HTTP_CONFIG);
-		$response = $request->send()->getBody();
-		$karma=json_decode($response)->karma;
-		Score::update(self::name,$userid,$karma);
+      $request=new HTTP_Request2("https://hacker-news.firebaseio.com/v0/user/".$username.".json");
+      $request->setConfig($HTTP_CONFIG);
+  		$response = $request->send()->getBody();
+  		$karma=json_decode($response)->karma;
+  		Score::update(self::name,$userid,$karma);
     }
 	public static function callback()
 	{		
