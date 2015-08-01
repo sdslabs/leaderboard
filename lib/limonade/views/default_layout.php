@@ -9,7 +9,7 @@
   <div id="header">
     <h1>Limonade</h1>
   </div>
-  
+
   <div id="content">
     <?php echo error_notices_render(); ?>
     <div id="main">

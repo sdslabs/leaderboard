@@ -1,15 +1,16 @@
 <?php
-$scores_formatted=array();	//Keep final formatted scores here
+$scores_formatted = [];    //Keep final formatted scores here
 
 //generate a list of unique service names
-$services=array_map(function($row){
-	return $row->service;
-},$scores);
-$services=array_unique($services);
+$services = array_map(function ($row) {
+    return $row->service;
+}, $scores);
+$services = array_unique($services);
 
 //create a 2d table for user/scores
-foreach($scores as $score)
-	$scores_formatted[$score->userid][$score->service]=$score->score;
+foreach ($scores as $score) {
+    $scores_formatted[$score->userid][$score->service] = $score->score;
+}
 ?>
 <section id="scores">
 	<div class="container">
@@ -23,7 +24,7 @@ foreach($scores as $score)
 						<?foreach($services as $s):?>
 						<th>
 							<img class="service-icon" src="public/img/<?=$s?>.png" title="<?=$s?>">
-						</th>		
+						</th>
 						<?endforeach;?>
 					</tr>
 				</thead>
@@ -32,7 +33,7 @@ foreach($scores as $score)
 					<tr>
 						<th><?=$person?></th>
 						<?foreach($services as $s):?>
-						<td><?=isset($score[$s])?$score[$s]:" - "?></td>
+						<td><?=isset($score[$s]) ? $score[$s] : ' - '?></td>
 						<?endforeach;?>
 					</tr>
 					<?endforeach;?>
@@ -48,7 +49,7 @@ foreach($scores as $score)
 <script src="/public/js/jquery.min.js"></script>
 <script src="/public/js/jquery.tablesorter.min.js"></script>
 <script>
-	$(function(){ 
-	  $("#hometable").tablesorter(); 
+	$(function(){
+	  $("#hometable").tablesorter();
 	});
 </script>
