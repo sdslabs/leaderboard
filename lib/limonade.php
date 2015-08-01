@@ -39,7 +39,6 @@
 #    OTHER DEALINGS IN THE SOFTWARE.                                           #
 # ============================================================================ #
 
-
 # ============================================================================ #
 #    0. PREPARE                                                                #
 # ============================================================================ #
@@ -48,28 +47,28 @@
 /**
  * Limonade version.
  */
-define('LIMONADE',              '0.5.0');
-define('LIM_NAME',              'Un grand cru qui sait se faire attendre');
-define('LIM_START_MICROTIME',   (float) substr(microtime(), 0, 10));
-define('LIM_SESSION_NAME',      'LIMONADE'.str_replace('.', 'x', LIMONADE));
+define('LIMONADE', '0.5.0');
+define('LIM_NAME', 'Un grand cru qui sait se faire attendre');
+define('LIM_START_MICROTIME', (float) substr(microtime(), 0, 10));
+define('LIM_SESSION_NAME', 'LIMONADE'.str_replace('.', 'x', LIMONADE));
 define('LIM_SESSION_FLASH_KEY', '_lim_flash_messages');
-define('LIM_START_MEMORY',      memory_get_usage());
-define('E_LIM_HTTP',            32768);
-define('E_LIM_PHP',             65536);
-define('E_LIM_DEPRECATED',      35000);
-define('NOT_FOUND',             404);
-define('SERVER_ERROR',          500);
-define('ENV_PRODUCTION',        10);
-define('ENV_DEVELOPMENT',       100);
-define('X-SENDFILE',            10);
-define('X-LIGHTTPD-SEND-FILE',  20);
+define('LIM_START_MEMORY', memory_get_usage());
+define('E_LIM_HTTP', 32768);
+define('E_LIM_PHP', 65536);
+define('E_LIM_DEPRECATED', 35000);
+define('NOT_FOUND', 404);
+define('SERVER_ERROR', 500);
+define('ENV_PRODUCTION', 10);
+define('ENV_DEVELOPMENT', 100);
+define('X-SENDFILE', 10);
+define('X-LIGHTTPD-SEND-FILE', 20);
 
 # for PHP 5.3.0 <
 if (!defined('E_DEPRECATED')) {
-    define('E_DEPRECATED',        8192);
+    define('E_DEPRECATED', 8192);
 }
 if (!defined('E_USER_DEPRECATED')) {
-    define('E_USER_DEPRECATED',   16384);
+    define('E_USER_DEPRECATED', 16384);
 }
 # for PHP 5.2.0 <
 if (!defined('E_RECOVERABLE_ERROR')) {
@@ -162,7 +161,6 @@ dispatch(['/_lim_public/**', ['_lim_public_file']], 'render_limonade_file');
 
                                      # # #
 
-
 # ============================================================================ #
 #    1. BASE                                                                   #
 # ============================================================================ #
@@ -184,7 +182,6 @@ dispatch(['/_lim_public/**', ['_lim_public_file']], 'render_limonade_file');
 # - function autorender($route){}
 #
 # See abstract.php for more details.
-
 
 ## MAIN PUBLIC FUNCTIONS _______________________________________________________
 
@@ -237,7 +234,7 @@ function option($name = null, $values = null)
  * </code>
  *
  * @param mixed $name_or_array_or_null could be null || array of params || name of a param (optional)
- * @param mixed $value,... for the $name param (optional)
+ * @param mixed $value,...             for the $name param (optional)
  *
  * @return mixed all params, or one if a first argument $name is provided
  */
@@ -333,24 +330,24 @@ function run($env = null)
     $base_file = basename($env['SERVER']['SCRIPT_NAME']);
     $base_uri = file_path($base_path, (($base_file == 'index.php') ? '?' : $base_file.'?'));
     $lim_dir = dirname(__FILE__);
-    option('root_dir',           $root_dir);
-    option('base_path',          $base_path);
-    option('base_uri',           $base_uri); // set it manually if you use url_rewriting
-  option('limonade_dir',       file_path($lim_dir));
+    option('root_dir', $root_dir);
+    option('base_path', $base_path);
+    option('base_uri', $base_uri); // set it manually if you use url_rewriting
+  option('limonade_dir', file_path($lim_dir));
     option('limonade_views_dir', file_path($lim_dir, 'limonade', 'views'));
     option('limonade_public_dir', file_path($lim_dir, 'limonade', 'public'));
-    option('public_dir',         file_path($root_dir, 'public'));
-    option('views_dir',          file_path($root_dir, 'views'));
-    option('controllers_dir',    file_path($root_dir, 'controllers'));
-    option('lib_dir',            file_path($root_dir, 'lib'));
-    option('error_views_dir',    option('limonade_views_dir'));
-    option('env',                ENV_PRODUCTION);
-    option('debug',              true);
-    option('session',            LIM_SESSION_NAME); // true, false or the name of your session
-  option('encoding',           'utf-8');
-    option('signature',          LIM_NAME); // X-Limonade header value or false to hide it
-  option('gzip',               false);
-    option('x-sendfile',         0); // 0: disabled,
+    option('public_dir', file_path($root_dir, 'public'));
+    option('views_dir', file_path($root_dir, 'views'));
+    option('controllers_dir', file_path($root_dir, 'controllers'));
+    option('lib_dir', file_path($root_dir, 'lib'));
+    option('error_views_dir', option('limonade_views_dir'));
+    option('env', ENV_PRODUCTION);
+    option('debug', true);
+    option('session', LIM_SESSION_NAME); // true, false or the name of your session
+  option('encoding', 'utf-8');
+    option('signature', LIM_NAME); // X-Limonade header value or false to hide it
+  option('gzip', false);
+    option('x-sendfile', 0); // 0: disabled,
                                    // X-SENDFILE: for Apache and Lighttpd v. >= 1.5,
                                    // X-LIGHTTPD-SEND-FILE: for Apache and Lighttpd v. < 1.5
 
@@ -565,7 +562,6 @@ function app_file()
 
                                      # # #
 
-
 # ============================================================================ #
 #    2. ERROR                                                                  #
 # ============================================================================ #
@@ -595,9 +591,9 @@ function error($errno = null, $function = null)
  * $errno and $msg arguments can be passsed in any order
  * If no arguments are passed, default $errno is SERVER_ERROR (500).
  *
- * @param int,string $errno Error number or message string
- * @param string,string $msg Message string or error number
- * @param mixed $debug_args extra data provided for debugging
+ * @param int,string    $errno      Error number or message string
+ * @param string,string $msg        Message string or error number
+ * @param mixed         $debug_args extra data provided for debugging
  *
  * @return void
  */
@@ -635,7 +631,7 @@ function halt($errno = SERVER_ERROR, $msg = '', $debug_args = null)
  * Find and call matching error handler and exit
  * If no match found, call default error handler.
  *
- * @param int $errno
+ * @param int    $errno
  * @param string $errstr
  * @param string $errfile
  * @param string $errline
@@ -736,7 +732,7 @@ function error_not_found_output($errno, $errstr, $errfile, $errline)
 /**
  * Returns server error output.
  *
- * @param int $errno
+ * @param int    $errno
  * @param string $errstr
  * @param string $errfile
  * @param string $errline
@@ -896,7 +892,6 @@ function error_http_status($errno)
 }
 
                                      # # #
-
 
 # ============================================================================ #
 #    3. REQUEST                                                                #
@@ -1098,7 +1093,6 @@ function request_uri($env = null)
 
                                      # # #
 
-
 # ============================================================================ #
 #    4. ROUTER                                                                 #
 # ============================================================================ #
@@ -1118,7 +1112,7 @@ function dispatch($path_or_array, $callback, $options = [])
  *
  * @param string $path_or_array
  * @param string $callback
- * @param array $options (optional). See {@link route()} for available options.
+ * @param array  $options       (optional). See {@link route()} for available options.
  *
  * @return void
  */
@@ -1133,7 +1127,7 @@ function dispatch_get($path_or_array, $callback, $options = [])
  *
  * @param string $path_or_array
  * @param string $callback
- * @param array $options (optional). See {@link route()} for available options.
+ * @param array  $options       (optional). See {@link route()} for available options.
  *
  * @return void
  */
@@ -1147,7 +1141,7 @@ function dispatch_post($path_or_array, $callback, $options = [])
  *
  * @param string $path_or_array
  * @param string $callback
- * @param array $options (optional). See {@link route()} for available options.
+ * @param array  $options       (optional). See {@link route()} for available options.
  *
  * @return void
  */
@@ -1161,7 +1155,7 @@ function dispatch_put($path_or_array, $callback, $options = [])
  *
  * @param string $path_or_array
  * @param string $callback
- * @param array $options (optional). See {@link route()} for available options.
+ * @param array  $options       (optional). See {@link route()} for available options.
  *
  * @return void
  */
@@ -1177,12 +1171,12 @@ function dispatch_delete($path_or_array, $callback, $options = [])
  *
  * @see route_build()
  *
- * @param string $method
+ * @param string       $method
  * @param string|array $path_or_array
- * @param callback $func
- * @param array $options (optional). Available options:
- *   - 'params' key with an array of parameters: for parametrized routes.
- *     those parameters will be merged with routes parameters.
+ * @param callback     $func
+ * @param array        $options       (optional). Available options:
+ *                                    - 'params' key with an array of parameters: for parametrized routes.
+ *                                    those parameters will be merged with routes parameters.
  *
  * @return array
  */
@@ -1222,15 +1216,15 @@ function route_reset()
 /**
  * Build a route and return it.
  *
- * @param string $method allowed http method (one of those returned by {@link request_methods()})
+ * @param string       $method        allowed http method (one of those returned by {@link request_methods()})
  * @param string|array $path_or_array
- * @param callback $callback callback called when route is found. It can be
- *   a function, an object method, a static method or a closure.
- *   See {@link http://php.net/manual/en/language.pseudo-types.php#language.types.callback php documentation}
- *   to learn more about callbacks.
- * @param array $options (optional). Available options:
- *   - 'params' key with an array of parameters: for parametrized routes.
- *     those parameters will be merged with routes parameters.
+ * @param callback     $callback      callback called when route is found. It can be
+ *                                    a function, an object method, a static method or a closure.
+ *                                    See {@link http://php.net/manual/en/language.pseudo-types.php#language.types.callback php documentation}
+ *                                    to learn more about callbacks.
+ * @param array        $options       (optional). Available options:
+ *                                    - 'params' key with an array of parameters: for parametrized routes.
+ *                                    those parameters will be merged with routes parameters.
  *
  * @return array array with keys "method", "pattern", "names", "callback", "options"
  */
@@ -1333,8 +1327,8 @@ function route_build($method, $path_or_array, $callback, $options = [])
  * @param string $path
  *
  * @return array,false route array has same keys as route returned by
- *  {@link route_build()} ("method", "pattern", "names", "callback", "options")
- *  + the processed "params" key
+ *                     {@link route_build()} ("method", "pattern", "names", "callback", "options")
+ *                     + the processed "params" key
  */
 function route_find($method, $path)
 {
@@ -1573,7 +1567,7 @@ function txt($content_or_func, $layout = '', $locals = [])
  * Returns json representation of data with proper http headers.
  *
  * @param string $data
- * @param int $json_option
+ * @param int    $json_option
  *
  * @return string
  */
@@ -1625,7 +1619,6 @@ function render_file($filename, $return = false)
 }
 
                                      # # #
-
 
 # ============================================================================ #
 #    6. HELPERS                                                                #
@@ -1718,7 +1711,7 @@ function h($str, $quote_style = ENT_NOQUOTES, $charset = null)
  * or if it's <code>$name</code> is an array, merge it with current messages.
  *
  * @param string, array $name
- * @param mixed  $values,...
+ * @param mixed         $values,...
  *
  * @return mixed variable value for $name if $name argument is provided, else return all variables
  */
@@ -1759,7 +1752,7 @@ function flash($name = null, $value = null)
  * or if it's <code>$name</code> is an array, merge it with current messages.
  *
  * @param string, array $name
- * @param mixed  $values,...
+ * @param mixed         $values,...
  *
  * @return mixed variable value for $name if $name argument is provided, else return all variables
  */
@@ -1864,7 +1857,6 @@ function benchmark()
 
                                      # # #
 
-
 # ============================================================================ #
 #    7. UTILS                                                                  #
 # ============================================================================ #
@@ -1873,10 +1865,10 @@ function benchmark()
  * Calls a function if exists.
  *
  * @param callback $callback a function stored in a string variable,
- *   or an object and the name of a method within the object
- *   See {@link http://php.net/manual/en/language.pseudo-types.php#language.types.callback php documentation}
- *   to learn more about callbacks.
- * @param mixed $arg,.. (optional)
+ *                           or an object and the name of a method within the object
+ *                           See {@link http://php.net/manual/en/language.pseudo-types.php#language.types.callback php documentation}
+ *                           to learn more about callbacks.
+ * @param mixed    $arg,..   (optional)
  *
  * @return mixed
  */
@@ -1936,9 +1928,9 @@ function v($value, $default)
 /**
  * Load php files with require_once in a given dir.
  *
- * @param string $path Path in which are the file to load
- * @param string $pattern a regexp pattern that filter files to load
- * @param bool $prevents_output security option that prevents output
+ * @param string $path            Path in which are the file to load
+ * @param string $pattern         a regexp pattern that filter files to load
+ * @param bool   $prevents_output security option that prevents output
  *
  * @return array paths of loaded files
  */
@@ -1967,8 +1959,8 @@ function require_once_dir($path, $pattern = '*.php', $prevents_output = true)
 /**
  * Dumps a variable into inspectable format.
  *
- * @param anything $var the variable to debug
- * @param bool $output_as_html sets whether to wrap output in <pre> tags. default: true
+ * @param anything $var            the variable to debug
+ * @param bool     $output_as_html sets whether to wrap output in <pre> tags. default: true
  *
  * @return string the variable with output
  */
@@ -2008,61 +2000,60 @@ function debug($var, $output_as_html = true)
 
 ## HTTP utils  _________________________________________________________________
 
-
 ### Constants: HTTP status codes
 
-define('HTTP_CONTINUE',                      100);
-define('HTTP_SWITCHING_PROTOCOLS',           101);
-define('HTTP_PROCESSING',                    102);
-define('HTTP_OK',                            200);
-define('HTTP_CREATED',                       201);
-define('HTTP_ACCEPTED',                      202);
-define('HTTP_NON_AUTHORITATIVE',             203);
-define('HTTP_NO_CONTENT',                    204);
-define('HTTP_RESET_CONTENT',                 205);
-define('HTTP_PARTIAL_CONTENT',               206);
-define('HTTP_MULTI_STATUS',                  207);
+define('HTTP_CONTINUE', 100);
+define('HTTP_SWITCHING_PROTOCOLS', 101);
+define('HTTP_PROCESSING', 102);
+define('HTTP_OK', 200);
+define('HTTP_CREATED', 201);
+define('HTTP_ACCEPTED', 202);
+define('HTTP_NON_AUTHORITATIVE', 203);
+define('HTTP_NO_CONTENT', 204);
+define('HTTP_RESET_CONTENT', 205);
+define('HTTP_PARTIAL_CONTENT', 206);
+define('HTTP_MULTI_STATUS', 207);
 
-define('HTTP_MULTIPLE_CHOICES',              300);
-define('HTTP_MOVED_PERMANENTLY',             301);
-define('HTTP_MOVED_TEMPORARILY',             302);
-define('HTTP_SEE_OTHER',                     303);
-define('HTTP_NOT_MODIFIED',                  304);
-define('HTTP_USE_PROXY',                     305);
-define('HTTP_TEMPORARY_REDIRECT',            307);
+define('HTTP_MULTIPLE_CHOICES', 300);
+define('HTTP_MOVED_PERMANENTLY', 301);
+define('HTTP_MOVED_TEMPORARILY', 302);
+define('HTTP_SEE_OTHER', 303);
+define('HTTP_NOT_MODIFIED', 304);
+define('HTTP_USE_PROXY', 305);
+define('HTTP_TEMPORARY_REDIRECT', 307);
 
-define('HTTP_BAD_REQUEST',                   400);
-define('HTTP_UNAUTHORIZED',                  401);
-define('HTTP_PAYMENT_REQUIRED',              402);
-define('HTTP_FORBIDDEN',                     403);
-define('HTTP_NOT_FOUND',                     404);
-define('HTTP_METHOD_NOT_ALLOWED',            405);
-define('HTTP_NOT_ACCEPTABLE',                406);
+define('HTTP_BAD_REQUEST', 400);
+define('HTTP_UNAUTHORIZED', 401);
+define('HTTP_PAYMENT_REQUIRED', 402);
+define('HTTP_FORBIDDEN', 403);
+define('HTTP_NOT_FOUND', 404);
+define('HTTP_METHOD_NOT_ALLOWED', 405);
+define('HTTP_NOT_ACCEPTABLE', 406);
 define('HTTP_PROXY_AUTHENTICATION_REQUIRED', 407);
-define('HTTP_REQUEST_TIME_OUT',              408);
-define('HTTP_CONFLICT',                      409);
-define('HTTP_GONE',                          410);
-define('HTTP_LENGTH_REQUIRED',               411);
-define('HTTP_PRECONDITION_FAILED',           412);
-define('HTTP_REQUEST_ENTITY_TOO_LARGE',      413);
-define('HTTP_REQUEST_URI_TOO_LARGE',         414);
-define('HTTP_UNSUPPORTED_MEDIA_TYPE',        415);
-define('HTTP_RANGE_NOT_SATISFIABLE',         416);
-define('HTTP_EXPECTATION_FAILED',            417);
-define('HTTP_UNPROCESSABLE_ENTITY',          422);
-define('HTTP_LOCKED',                        423);
-define('HTTP_FAILED_DEPENDENCY',             424);
-define('HTTP_UPGRADE_REQUIRED',              426);
+define('HTTP_REQUEST_TIME_OUT', 408);
+define('HTTP_CONFLICT', 409);
+define('HTTP_GONE', 410);
+define('HTTP_LENGTH_REQUIRED', 411);
+define('HTTP_PRECONDITION_FAILED', 412);
+define('HTTP_REQUEST_ENTITY_TOO_LARGE', 413);
+define('HTTP_REQUEST_URI_TOO_LARGE', 414);
+define('HTTP_UNSUPPORTED_MEDIA_TYPE', 415);
+define('HTTP_RANGE_NOT_SATISFIABLE', 416);
+define('HTTP_EXPECTATION_FAILED', 417);
+define('HTTP_UNPROCESSABLE_ENTITY', 422);
+define('HTTP_LOCKED', 423);
+define('HTTP_FAILED_DEPENDENCY', 424);
+define('HTTP_UPGRADE_REQUIRED', 426);
 
-define('HTTP_INTERNAL_SERVER_ERROR',         500);
-define('HTTP_NOT_IMPLEMENTED',               501);
-define('HTTP_BAD_GATEWAY',                   502);
-define('HTTP_SERVICE_UNAVAILABLE',           503);
-define('HTTP_GATEWAY_TIME_OUT',              504);
-define('HTTP_VERSION_NOT_SUPPORTED',         505);
-define('HTTP_VARIANT_ALSO_VARIES',           506);
-define('HTTP_INSUFFICIENT_STORAGE',          507);
-define('HTTP_NOT_EXTENDED',                  510);
+define('HTTP_INTERNAL_SERVER_ERROR', 500);
+define('HTTP_NOT_IMPLEMENTED', 501);
+define('HTTP_BAD_GATEWAY', 502);
+define('HTTP_SERVICE_UNAVAILABLE', 503);
+define('HTTP_GATEWAY_TIME_OUT', 504);
+define('HTTP_VERSION_NOT_SUPPORTED', 505);
+define('HTTP_VARIANT_ALSO_VARIES', 506);
+define('HTTP_INSUFFICIENT_STORAGE', 507);
+define('HTTP_NOT_EXTENDED', 510);
 
 /**
  * Output proper HTTP header for a given HTTP code.
@@ -2605,7 +2596,7 @@ function file_is_binary($filename)
 /**
  * Return or output file content.
  *
- * @return 	string, int
+ * @return string, int
  **/
 function file_read($filename, $return = false)
 {
@@ -2725,4 +2716,3 @@ if (!function_exists('htmlspecialchars_decode')) {
 }
 
 #   ================================= END ==================================   #
-

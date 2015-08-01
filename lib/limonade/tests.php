@@ -238,8 +238,8 @@ function test_run_assertion()
 /**
  * Calls a function if exists.
  *
- * @param string $func the function name
- * @param mixed $arg,.. (optional)
+ * @param string $func   the function name
+ * @param mixed  $arg,.. (optional)
  *
  * @return mixed
  */
@@ -333,7 +333,7 @@ function test_cli_format($text, $format)
  *
  * @param string $url
  * @param string $method
- * @param bool $include_header
+ * @param bool   $include_header
  *
  * @return string
  *

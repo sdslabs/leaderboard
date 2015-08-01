@@ -61,7 +61,7 @@ function autoload_controller($callback)
  * @abstract this function might be redefined by user
  *
  * @param array() $route array (like returned by {@link route_build()},
- *   with keys "method", "pattern", "names", "callback", "options")
+ *                       with keys "method", "pattern", "names", "callback", "options")
  *
  * @return void
  */
@@ -77,9 +77,9 @@ function before($route)
  *
  * @abstract this function might be redefined by user
  *
- * @param string $output
- * @param array() $route array (like returned by {@link route_find()},
- *   with keys "method", "pattern", "names", "callback", "params", "options")
+ * @param string  $output
+ * @param array() $route  array (like returned by {@link route_find()},
+ *                        with keys "method", "pattern", "names", "callback", "params", "options")
  *
  * @return string
  */
@@ -161,11 +161,11 @@ function before_exit($exit)
  *
  * @param string $content_or_func a function, a file in current views dir or a string
  * @param string $layout
- * @param array $locals
- * @param array $view_path (by default <code>file_path(option('views_dir'),$content_or_func);</code>)
+ * @param array  $locals
+ * @param array  $view_path       (by default <code>file_path(option('views_dir'),$content_or_func);</code>)
  *
  * @return array with, in order, $content_or_func, $layout, $locals vars
- *  and the calculated $view_path
+ *               and the calculated $view_path
  */
 function before_render($content_or_func, $layout, $locals, $view_path)
 {
@@ -180,7 +180,7 @@ function before_render($content_or_func, $layout, $locals, $view_path)
  * @abstract this function might be defined by user
  *
  * @param array() $route array (like returned by {@link route_build()},
- *   with keys "method", "pattern", "names", "callback", "options")
+ *                       with keys "method", "pattern", "names", "callback", "options")
  *
  * @return string
  */
