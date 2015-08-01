@@ -18,7 +18,7 @@ global $SERVICES;
 					<form class="form-inline">
 						<img class="service-icon" src="/public/img/<?=$s?>.png">
 						<a href="/login/<?=$s?>" class="btn btn-primary pull-right">Login</a><br>
-						<a class="refresh-btn btn btn-primary pull-right" href="/update/<?=$s."/".$_SESSION['userid']?>">Refresh</a>
+						<a class="refresh-btn btn btn-primary pull-right" href="/update/<?=$s.'/'.$_SESSION['userid']?>">Refresh</a>
 					</form>
 				</div>
 			<?endforeach;?>
@@ -27,5 +27,5 @@ global $SERVICES;
 			<p>Any new login will delete your previous authentication with that service.</p>
 		</div>
 	</div>
-	
+
 </section>
